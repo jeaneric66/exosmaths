@@ -1,0 +1,246 @@
+\documentclass{article}
+
+\usepackage[sol,lm]{voltaire}
+
+
+\begin{document}
+	
+	
+	
+ \begin{exercice}
+ 	Soit $G$ un sous-groupe fini des déplacements du plan. 
+\begin{enumerate}[1.]
+\item Montrer que $G$ ne contient pas d'autre translation que l'identité.
+ \item En déduire que $G$ est commutatif. 	
+ 		Peut-on en dire autant d'un sous-groupe fini des déplacements de l'espace de dimension 3 ?
+ 		\item Montrer que $G$ est engendré par une seule rotation. \'A quel groupe connu est-il isomorphe ?
+ 	\end{enumerate}
+ \end{exercice}
+\begin{solution}
+	\begin{enumerate}[1.]
+		\item Supposons que $G$ contienne une translation de vecteur $\vecteur{u}\neq \vecteur{0}$.
+		
+		Alors en tantq eu groupe, $G$ contientrait toutes les translations de vecteurs $n\vecteur{u}$ avec $n\in \GZ$, ce qui contredit le fait que $G$ soit d'ordre fini. La seule translation contenue dans le groupe $G$ est donc l'identité.
+		\item Les déplacements du plan étant les translations et les rotations, $G$ ne contient donc que des rotations. 
+		
+		Soient $r_1$ et $r_2$ deux rotations de $G$ d'angles respectifs $\theta_1$ et $\theta_2$. Le déplacement $r_1\circ r_2\circ r_1^{-1} \circ r_2^{-1}$ est donc une translation qui appartient aussi à $G$ : d'après la question précédente c'est donc l'identité du plan. 
+		
+		On a alors 
+		\begin{eqnarray*}
+		r_1\circ r_2\circ r_1^{-1} \circ r_2^{-1} &=& \text{Id}\\
+		 r_1 \circ r_2 &=& (r_1^{-1} \circ r_2^{-1})^{-1}\\
+		 &=& r_2\circ r_1.
+		\end{eqnarray*} Le groupe $G$ est donc commutatif.
+	
+	Dans l'espace le groupe des déplacements du cube est fini mais non abélien.
+	\item Deux rotations du plan ayant un centre différent ne commutant pas, toutes les rotations de $G$ ont un même centre. 
+	
+	$G$ étant fini, l'ensemble des mesures des angles des rotations de $G$ ont un plus petit élément dans $\Intof{0}{2\pi}$. Notons $\theta_0$ ce plus petit élément, et $r_0$ cette rotation. Pour tout $n\in \GZ$, $r_0^n$ est dans $G$.
+	
+	Soit $r$ une rotation élément de $G$ d'angle $\theta \in \Intof{0}{2\pi}$. 
+	
+	Il existe un élément $p$ de $\GZ$ tel que $\theta-p\theta_0\in \Intfo{0}{\theta_0}$. La rotation d'angle $\theta-p\theta_0$ appartenant à $G$ est donc l'identité du plan car $\theta_0$ est le plus petit angle non nul de raotation de $G$.
+	
+	Par suite, pour toute rotation $r$ de $g$, il existe $p\in \GZ$ tel que $r$ soit une rotation d'angle $p\theta_0$, et donc $r=r_0^p$. 
+	
+	Le groupe $G$ est donc engendré par $r_0$. 
+	
+	Notons $n\in \GN^\star$ l'ordre de $G$, on a donc $\theta_0=\frac{2\pi}{n}$, et est isomorphe à $\GZ/n\GZ$ ou encore au groupe des racines $n$-ièmes de l'unité. 
+	\end{enumerate}
+	\end{solution}
+\traitgras
+
+\begin{exercice}
+	
+	Soit $a,\ b$ et $c$ trois réels ; on considère la matrice $$ A=\begin{pmatrix}
+	a & c& b\\
+	b & a & c\\
+	c & b & a\\
+	\end{pmatrix}.$$
+	
+	On désigne par $f$ l'endomorphisme de $\GR^3$ associé à la matrice $A$ dans la base canonique.
+	
+	\begin{enumerate}[1.]
+		\item Trouver une condition nécessaire et suffisante pour que la matrice $A$ soit orthogonale.
+		
+		Montrer que dans ce cas, $a+b+c=\pm 1$.
+		
+		\item On suppose que la matrice $A$ est orthogonale.
+		
+		Déterminer la nature géométrique de $f$ et ses éléments caractéristiques lorsque :
+		\begin{enumerate}[a)]
+			\item $a+b+c=1$ ;
+			\item $a+b+c=-1$.
+		\end{enumerate}
+	On examinera le cas particulier où $b=c$.
+		\end{enumerate}
+\end{exercice}
+
+\begin{solution}
+	\begin{enumerate}[1.]
+		\item $A$ étant orthogonale étant équivalent au fait que les vecteurs colonnes de $A$ forment une base orthonormée de $\GR^3$, de manière équivalente à 
+		$$ \begin{cases}
+		a^2+b^2+c^1=1\\ ab+bc+ca=0.
+		\end{cases}$$
+		
+		Or $$(a+b+c)^2=a^2+b^2+c^2 +2(ab+bc+ca)=1,$$
+		 ce qui donne $$ a+b+c=\pm 1.$$
+		 \item Posons $a+b+c=\epsilon$.
+		 
+		 On a $$ \begin{vmatrix}
+		 a & c & b \\
+		 b & a & c \\
+		 c & b & a \\
+		 \end{vmatrix} = a^3+b^3+c^3 -3abc.$$
+		 
+		 De plus on a
+		 \begin{eqnarray*}
+		a^3+b^3+c^3 -3abc &=& (a^2+b^2+c^2)(a+b+c) -ab(a+b)-bc(b+c)-ac(a+c)-3abc\\
+		&=& \epsilon-ab(\epsilon-c)-bc(\epsilon-a)-ac(\epsilon-b)-3abc\\
+		&=& \epsilon -(ab+bc+ca)\epsilon +3abc-3abc \\
+		&=& \epsilon.
+		 \end{eqnarray*}
+	 
+	 \begin{enumerate}[a)]
+	 	
+	 	\item\label{1807191425} Si $\epsilon=1$, on a donc $\det A=1$ et $A\in \Calig{SO}_3(\GR)$, $f$ est donc une rotation.
+	 	
+	 	De plus 
+	 	 $$ A=\begin{pmatrix}
+	 		a & c& b\\
+	 		b & a & c\\
+	 		c & b & a\\
+	 	\end{pmatrix}\begin{pmatrix}
+	 	1\\ 1 \\ 1
+ 	\end{pmatrix}=\begin{pmatrix}
+ 	1\\ 1 \\ 1
+ \end{pmatrix}.$$
+Le vecteur $\vecteur{u}\coordptesp{1}{1}{1}$ est invariant par $f$ : il dirige donc l'axe de la rotation.
+
+Soit $\vecteur{v}\coordptesp{1}{-1}{0}$ dans $\vecteur{v}^\perp $ (on a plein de choix bien sûr...),
+
+on a alors   $$ A=\begin{pmatrix}
+	a & c& b\\
+	b & a & c\\
+	c & b & a\\
+\end{pmatrix}\begin{pmatrix}
+	1\\ -1\\ 0
+\end{pmatrix}=\begin{pmatrix}
+	a-c\\ b-a \\ c-b
+\end{pmatrix}.$$
+
+Soit $\theta$ l'angle de la rotation :
+
+\begin{eqnarray*}
+ \cos \theta & = &\frac{(\vecteur{v} | f(\vecteur{v}))}{\left| \vecteur{v}\right\|\left| f(\vecteur{v}) \right\|}\\
+ &=& \frac{3a-1}{\sqrt{2}\sqrt{(a-c)^2+(b-a)^2+(c-b)^2}}\\
+ &=& \frac{3a-1}{2},
+\end{eqnarray*}
+car : $(a-c)^2+(b-a)^2+(c-b)^2=2(a^2+b^2+c^2)-2(ab+bc+ca)=2$.
+
+Pour orienter l'axe de la rotation on calcule 
+$ \vecteur{v}\wedge f(\vecteur{v})$ :
+$$ \begin{pmatrix}
+1 \\ -1 \\ 0
+\end{pmatrix} \wedge \begin{pmatrix}
+a-c\\ b-c \\ c-b 
+\end{pmatrix}=\begin{pmatrix}
+b-c \\ b-c \\ b-c 
+\end{pmatrix}=(b-c)\vecteur{u}.$$
+
+\begin{enumerate}[$\bullet$]
+	\item Si $b> c$, $f$ est la rotation d'axe Vect ($\vecteur{u}$)dirigé par $\vecteur{u}$ et d'angle $\arccos \frac{3a-1}{2}$.
+	\item Si $b<c$ $f$ est la rotation d'axe Vect($\vecteur{u}$), dirigé par $-\vecteur{u}$ et d'angle $\arccos \frac{3a-1}{2}$.
+	\item Si $b=c$, la relation $ab+bc+ca=0$ donne $2ba+b^2=0$ soit $b=0$ ou $2a+b=0$
+	
+	\begin{itemize}
+		\item Si $b=c=0$ alors $a=1$ et $A=I_3$, $f$ est l'identité de $\GR^3$.
+		\item si $2a+b=0$, $a+b+c=-3a=1$ d'où $\cos\theta =-1$ ; $f$ est le demi-tour d'axe Vect($\vecteur{u}$).
+	\end{itemize}
+\end{enumerate}
+	 \end{enumerate}
+ \item Si $\epsilon=-1$, on a $A\in \Calig{O}_3(\GR)-\Calig{SO}_3(\GR)$ ; $f$ est donc une reflexion orthogonale ou la composée d'une réflexion orthogonale par une rotation.
+ 
+ On a $$ A=\begin{pmatrix}
+ 	a & c& b\\
+ 	b & a & c\\
+ 	c & b & a\\
+ \end{pmatrix}\begin{pmatrix}
+ 	1\\ 1\\ 1
+ \end{pmatrix}=\begin{pmatrix}
+ 	-1\\-1\\ -1
+ \end{pmatrix}.$$
+ 
+ Le vecteur $\vecteur{u}$ est change en son opposé. En reprenant les mêmes calculs qu'à la question \ref{1807191425} avec le vecteur $\vecteur{v}$, on obtient :
+ $$ \cos \theta =\frac{3a+1}{2}.$$
+ \begin{enumerate}[$\bullet$]
+ 	\item Si $b>c$, $f$ est la composée de la rotation d'axe Vect($\vecteur{u}$), dirigé par $\vecteur{u}$, d'angle $\arccos \frac{3a+1}{2}$, et de la réflexion par rapport au plan Vect($\vecteur{u})^{\perp}$.
+ 	\item Si $b<c$, $f$ est la composée de la rotation d'axe Vect($\vecteur{u}$), dirigé par $-\vecteur{u}$, d'angle $\arccos \frac{3a+1}{2}$, et de la réflexion par rapport au plan Vect($\vecteur{u})^{\perp}$.
+ 	\item Si $b=c$, la relation $ab+bc+ca=0$ donne $2ab+b^2=0$ soit $b=0$ ou $2a+b=0$.
+ 	
+ 	\begin{itemize}
+ 		\item si $b=c=0$, alors $a=-1$, d'où $A=-I_3$, $f$ est l'homothétie de rapport -1.
+ 		\item Si $2a+b=0$, $a+b+c=-3a=-1$, d'où $\cos \theta=1$ ; $f$ est la réflexion par rapport au plan Vect($\vecteur{u})^\perp$.
+ 	\end{itemize}
+ \end{enumerate}
+	\end{enumerate}
+	\end{solution}
+\traitgras
+\begin{exercice}
+	On considère dans l'espace affine euclidien $E$ de dimension 3 orienté, deux rotations $r$ te $r'$ d'axes respectifs $D$ et $D'$ et d'angles respectifs $\theta$ et $\theta'$ (en orientant convenablement les axes, on peut choisir $\theta$ et $\theta'$ dans $\Intff{0}{\pi}$).
+	
+	Les rotations $r$ et $r'$ sont dites \textbf{conjuguées} si, et seulement si, il existe un déplacement $f$ de $E$ tel que $$ r'=f^{-1}\circ r \circ f.$$
+	
+	Montrer que $r$ et $r'$ sont conjuguées si, et seulement si
+	$$\theta=\theta'.$$
+	
+	Expliciter alors le déplecement $f$.
+	\end{exercice}
+
+\begin{solution}
+	Il existe un repère orthonormé direct $(O;\ \vecteur{e}_1,\vecteur{e}_2,\vecteur{e}_3)$ de $E$ dans lequel $r$ a pour écriture analytique :
+	$$ \begin{pmatrix}
+	x'\\ y' \\ z'
+	\end{pmatrix}= \begin{pmatrix}
+	1 & 0 &0 \\ 0 &\cos \theta& -\sin \theta \\ 0 & \sin \theta & \cos \theta
+	\end{pmatrix}+ \begin{pmatrix}
+	0\\ 0 \\ 0
+	\end{pmatrix}.$$
+	
+	La relation $r'=f^{-1} \circ r\circ f$ signifie que $r'$ a la même expression analytique que $r$ dans le repère $(O;\  f(\vecteur{e}_1),f(\vecteur{e}_2),f(\vecteur{e}_3))$, qui est aussi orthonomal direct. Cette condition est satisfaite si, et seulement si, les deux rotations ont le même angle dans $\Intff{0}{\pi}$.
+	
+	Plus généralement, désignons par $O$ et $O'$ les intersections respectives de $D$ et $D'$ avec leur perpendiculaire commune. Notons $\vecteur{e}_1$ et $\vecteur{e}_1'$ les vecteurs unitaires de $D$ et de $D'$ qui orientent les axes de rotations conformément à $r$ et $r'$. On
+	complète alors par deux vecteurs $\vecteur{e}_2$ et $\vecteur{e}_3$ pour obtenir une base orthonormée $(\vecteur{e_1},\ \vecteur{e}_2,\ \vecteur{e}_3)$ directe.
+	
+	L'unique vissage $V$ qui transforme $O$ en $O'$ et $\vecteur{e}_1$ en $\vecteur{e}_1'$, transforme le repère orthonormé direct $(O;\ \vecteur{e}_1,\ \vecteur{e}_2,\ \vecteur{e}_3)$ 
+	en le repère orthonormé direct $(O';\ \vecteur{e}_1',\ \vecteur{e}_2',\ \vecteur{e}_3')$ dans lequel l'expression analytique de $r'$ est celle indiquée ci-dessus. On a bien 
+	$$ r'=V\circ r\circ V^{-1}.$$
+	\end{solution}
+\traitgras
+\begin{exercice}
+	Soit $E$ un espace affine euclidien de dimension 3, $D_1,\ D_2$ et $D_3$ trois droites de $E$ deux à deux non coplanaires et non parallèles à un même plan.
+	
+	Démontrer qu'il existe des vissages $V_1, \ V_2$ et $V_3$, d'axes respectifs $D_1,\ D_2$ et $D_3$ tels que 
+	$$ V_3\circ V_2\circ V_1= \text{Id}_E.$$ 
+	\end{exercice}
+\begin{solution}
+	Considèrons les droites :
+	
+	\begin{enumerate}[$\bullet$]
+		\item $\Delta_1$ perpendiculaire commune à $D_2$ et $D_3$ ;
+		\item $\Delta_2$ perpendiculaire commune à $D_3$ et $D_1$ ;
+		\item $\Delta_3$ perpendiculaire commune à $D_1$ et $D_2$.
+	\end{enumerate}
+
+Désignons par $s_1$, $s_2$ et $s_3$ les demi-tours d'axes respectifs $\Delta_1,\ \Delta_2$ et $\Delta_3$.
+
+\begin{enumerate}[$\bullet$]
+	\item $V_1=s_3\circ s_2$ est un vissage d'axe $D_1$ ;
+	\item $V_2=s_1\circ s_3$ est un vissage d'axe $D_2$ ;
+	\item $V_3=s_2\circ s_1$ est un vissage d'axe $D_3$.
+\end{enumerate}
+
+Alors :
+$$ V_3\circ V_2\circ V_1=s_2\circ s_1\circ s_1\circ s_3\circ s_3\circ s_2= \text{Id}_E.$$ 
+	\end{solution}
+\end{document}
